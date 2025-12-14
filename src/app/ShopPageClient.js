@@ -3,7 +3,7 @@
 import ShopClient from "./ShopClient";
 import styles from "./page.module.css";
 
-export default function ShopPageClient({ products, itemCount, error }) {
+export default function ShopPageClient({ products, itemCount }) {
   return (
     <main className={styles.main}>
       <div className={styles.heroSection}>
@@ -16,11 +16,7 @@ export default function ShopPageClient({ products, itemCount, error }) {
       </div>
 
       <div className={styles.contentWrapper}>
-        <ShopClient
-          initialProducts={products}
-          itemCount={itemCount}
-          error={error}
-        />
+        <ShopClient initialProducts={products} itemCount={itemCount} />
       </div>
     </main>
   );

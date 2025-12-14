@@ -123,10 +123,10 @@ export default function Header() {
           </button>
           <nav className={styles.sidebarNav}>
             <Link href="/" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>SHOP</Link>
-            <Link href="/skills" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>SKILLS</Link>
-            <Link href="/stories" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>STORIES</Link>
-            <Link href="/about" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>ABOUT</Link>
-            <Link href="/contact" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>CONTACT US</Link>
+            <Link href="/" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>SKILLS</Link>
+            <Link href="/" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>STORIES</Link>
+            <Link href="/" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>ABOUT</Link>
+            <Link href="/" className={styles.sidebarNavLink} onClick={handleCloseSidebar}>CONTACT US</Link>
           </nav>
         </div>
       </>
