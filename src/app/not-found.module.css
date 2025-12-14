@@ -1,0 +1,139 @@
+.main {
+  min-height: calc(100vh - 200px);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.title {
+  font-size: 120px;
+  font-weight: 700;
+  color: #252020;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 36px;
+  font-weight: 400;
+  color: #252020;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 28px;
+  color: #888792;
+  max-width: 600px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.homeButton,
+.shopButton {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 1px solid #252020;
+  display: inline-block;
+}
+
+.homeButton {
+  background: #252020;
+  color: #ffffff;
+}
+
+.homeButton:hover {
+  background: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+.shopButton {
+  background: transparent;
+  color: #252020;
+}
+
+.shopButton:hover {
+  background: #252020;
+  color: #ffffff;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 96px;
+  }
+
+  .subtitle {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .main {
+    padding: 32px 16px;
+    min-height: calc(100vh - 150px);
+  }
+
+  .title {
+    font-size: 72px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .homeButton,
+  .shopButton {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+

@@ -1,0 +1,173 @@
+.showFilterButton {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.sidebar {
+  width: 280px;
+  background: #ffffff;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.itemCount {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.hideFilterButton {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkboxFilter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0;
+}
+
+.checkboxFilter input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.filterGroup {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 16px;
+}
+
+.filterHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  color: #000000;
+  text-align: left;
+}
+
+.filterHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.filterTitle {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+.filterSelected {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.unselectAll {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #888888;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: left;
+  margin-top: 4px;
+}
+
+.unselectAll:hover {
+  color: #666666;
+}
+
+.filterHeader svg {
+  transition: transform 0.2s;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.filterHeader svg.rotated {
+  transform: rotate(180deg);
+}
+
+.filterOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  padding-left: 8px;
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666666;
+}
+
+.filterOption input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  /* .sidebar {
+    position: static;
+    width: 100%;
+  } */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    padding-top: 24px;
+    padding-left: 24px;
+  }
+}
+
