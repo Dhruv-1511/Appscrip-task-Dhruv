@@ -35,7 +35,7 @@ export async function generateMetadata() {
   const firstProduct = products[0];
 
   return {
-    title: `Discover Our Products | ${SEO_CONFIG.SITE_NAME}`,
+    title: `${SEO_CONFIG.SITE_NAME} | Discover Our Products`,
     description: SEO_CONFIG.DEFAULT_DESCRIPTION,
     alternates: {
       canonical: SEO_CONFIG.BASE_URL,
@@ -43,13 +43,13 @@ export async function generateMetadata() {
     openGraph: {
       type: "website",
       site_name: SEO_CONFIG.SITE_NAME,
-      title: `Discover Our Products | ${SEO_CONFIG.SITE_NAME}`,
+      title: `${SEO_CONFIG.SITE_NAME} | Discover Our Products`,
       description: SEO_CONFIG.DEFAULT_DESCRIPTION,
       images: firstProduct?.image ? [firstProduct.image] : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: `Discover Our Products | ${SEO_CONFIG.SITE_NAME}`,
+      title: `${SEO_CONFIG.SITE_NAME} | Discover Our Products`,
       description: SEO_CONFIG.DEFAULT_DESCRIPTION,
     },
   };
