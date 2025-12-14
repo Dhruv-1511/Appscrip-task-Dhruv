@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-import styles from './FilterSidebar.module.css';
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import styles from "./FilterSidebar.module.css";
 
 export default function FilterSidebar({ isOpen, onToggle, itemCount }) {
   const [openFilters, setOpenFilters] = useState({});
   const [selectedOptions, setSelectedOptions] = useState({});
 
   const toggleFilter = (filterName) => {
-    setOpenFilters(prev => ({
+    setOpenFilters((prev) => ({
       ...prev,
-      [filterName]: !prev[filterName]
+      [filterName]: !prev[filterName],
     }));
   };
 
   const handleOptionChange = (filterName, option) => {
-    setSelectedOptions(prev => {
+    setSelectedOptions((prev) => {
       const current = prev[filterName] || [];
       const newSelection = current.includes(option)
-        ? current.filter(item => item !== option)
+        ? current.filter((item) => item !== option)
         : [...current, option];
       return { ...prev, [filterName]: newSelection };
     });
@@ -27,39 +27,51 @@ export default function FilterSidebar({ isOpen, onToggle, itemCount }) {
 
   const handleUnselectAll = (filterName, e) => {
     e.stopPropagation();
-    setSelectedOptions(prev => ({
+    setSelectedOptions((prev) => ({
       ...prev,
-      [filterName]: []
+      [filterName]: [],
     }));
   };
 
   const filters = [
-    { name: 'IDEAL FOR', options: ['Men', 'Women', 'Baby & Kids'] },
-    { name: 'OCCASION', options: [] },
-    { name: 'WORK', options: [] },
-    { name: 'FABRIC', options: [] },
-    { name: 'SEGMENT', options: [] },
-    { name: 'SUITABLE FOR', options: [] },
-    { name: 'RAW MATERIALS', options: [] },
-    { name: 'PATTERN', options: [] },
+    { name: "IDEAL FOR", options: ["Men", "Women", "Baby & Kids"] },
+    { name: "OCCASION", options: ["Casual", "Formal", "Party", "Sports"] },
+    { name: "WORK", options: ["Office", "Field Work", "Remote", "Creative"] },
+    {
+      name: "FABRIC",
+      options: ["Cotton", "Silk", "Linen", "Wool", "Polyester"],
+    },
+    { name: "SEGMENT", options: ["Premium", "Luxury", "Budget", "Basic"] },
+    {
+      name: "SUITABLE FOR",
+      options: ["Summer", "Winter", "All Season", "Rainy"],
+    },
+    {
+      name: "RAW MATERIALS",
+      options: ["Organic", "Synthetic", "Recycled", "Natural"],
+    },
+    {
+      name: "PATTERN",
+      options: ["Solid", "Striped", "Checked", "Floral", "Abstract"],
+    },
   ];
 
   const getDisplayText = (filterName) => {
     const selected = selectedOptions[filterName];
     if (!selected || selected.length === 0) {
-      return 'All';
+      return "All";
     }
-    return selected.join(', ');
+    return selected.join(", ");
   };
 
   return (
-    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
       <div className={styles.filters}>
         <label className={styles.checkboxFilter}>
           <input type="checkbox" />
           <span>CUSTOMIZABLE</span>
         </label>
-        
+
         {filters.map((filter) => (
           <div key={filter.name} className={styles.filterGroup}>
             <button
@@ -68,7 +80,9 @@ export default function FilterSidebar({ isOpen, onToggle, itemCount }) {
             >
               <div className={styles.filterHeaderLeft}>
                 <h2 className={styles.filterTitle}>{filter.name}</h2>
-                <span className={styles.filterSelected}>{getDisplayText(filter.name)}</span>
+                <span className={styles.filterSelected}>
+                  {getDisplayText(filter.name)}
+                </span>
                 {openFilters[filter.name] && (
                   <button
                     className={styles.unselectAll}
@@ -78,19 +92,20 @@ export default function FilterSidebar({ isOpen, onToggle, itemCount }) {
                   </button>
                 )}
               </div>
-              <ChevronDown 
-                size={16} 
-                className={openFilters[filter.name] ? styles.rotated : ''}
+              <ChevronDown
+                size={16}
+                className={openFilters[filter.name] ? styles.rotated : ""}
               />
             </button>
             {openFilters[filter.name] && (
               <div className={styles.filterOptions}>
                 {filter.options.map((option) => {
-                  const isChecked = selectedOptions[filter.name]?.includes(option) || false;
+                  const isChecked =
+                    selectedOptions[filter.name]?.includes(option) || false;
                   return (
                     <label key={option} className={styles.filterOption}>
-                      <input 
-                        type="checkbox" 
+                      <input
+                        type="checkbox"
                         checked={isChecked}
                         onChange={() => handleOptionChange(filter.name, option)}
                       />
@@ -106,4 +121,3 @@ export default function FilterSidebar({ isOpen, onToggle, itemCount }) {
     </aside>
   );
 }
-

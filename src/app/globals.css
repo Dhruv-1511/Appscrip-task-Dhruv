@@ -1,5 +1,27 @@
-@import url("https://db.onlinewebfonts.com/c/ca671f001f1c1ac07ba12ef439e7e65a?family=Simplon+Norm");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+@font-face {
+  font-family: "Simplon Norm";
+  src: url("/fonts/Simplon Norm.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Simplon Norm";
+  src: url("/fonts/Simplon Norm Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Simplon Norm";
+  src: url("/fonts/Simplon Norm Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -15,8 +37,8 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);font-family: "Simplon Norm";
-  font-family: "Simplon Norm";
+  background: var(--background);
+  font-family: "Simplon Norm", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;

@@ -1,6 +1,5 @@
 import ShopPageClient from "./ShopPageClient";
 import { API_CONFIG, SEO_CONFIG, PRODUCT_CONFIG } from "@/lib/constants";
-import styles from "./page.module.css";
 
 async function getProducts() {
   try {

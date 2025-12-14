@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import FilterSidebar from "@/components/FilterSidebar/FilterSidebar";
 import LoadingSkeleton from "@/components/Loading/LoadingSkeleton";
-import { SORT_OPTIONS, BREAKPOINTS, PRODUCT_CONFIG } from "@/lib/constants";
+import { SORT_OPTIONS, PRODUCT_CONFIG } from "@/lib/constants";
 import { sortProducts, isMobile } from "@/lib/utils";
 import styles from "./page.module.css";
 import { ChevronLeft, ChevronRight, ChevronDown, Check } from "lucide-react";
