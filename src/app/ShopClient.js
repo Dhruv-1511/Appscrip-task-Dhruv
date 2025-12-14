@@ -9,12 +9,12 @@ import { sortProducts, isMobile } from "@/lib/utils";
 import styles from "./page.module.css";
 import { ChevronLeft, ChevronRight, ChevronDown, Check } from "lucide-react";
 
-export default function ShopClient({ initialProducts, itemCount }) {
+export default function ShopClient() {
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortBy, setSortBy] = useState("recommended");
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -26,23 +26,21 @@ export default function ShopClient({ initialProducts, itemCount }) {
     const handleResize = () => checkMobile();
     window.addEventListener("resize", handleResize);
 
-    // Only fetch if products are empty (likely due to server-side failure)
-    if (products.length === 0) {
-      setIsLoading(true);
-      fetch("https://fakestoreapi.com/products?limit=20")
-        .then((res) => res.json())
-        .then((data) => {
-          setProducts(data);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.error("Client-side fetch failed:", err);
-          setIsLoading(false);
-        });
-    }
+    // Fetch products on client side
+    setIsLoading(true);
+    fetch("https://fakestoreapi.com/products?limit=20")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error("Client-side fetch failed:", err);
+        setIsLoading(false);
+      });
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [products.length]);
+  }, []);
 
   const sortedProducts = useMemo(
     () => sortProducts(products, sortBy),
@@ -74,7 +72,7 @@ export default function ShopClient({ initialProducts, itemCount }) {
       <div className={styles.shopHeader}>
         <div className={styles.headerLeft}>
           <span className={`${styles.itemCount} ${styles.hideOnTablet}`}>
-            {itemCount} ITEMS
+            {products.length} ITEMS
           </span>
           {filterOpen ? (
             <>
@@ -164,7 +162,7 @@ export default function ShopClient({ initialProducts, itemCount }) {
           <FilterSidebar
             isOpen={filterOpen}
             onToggle={() => setFilterOpen(!filterOpen)}
-            itemCount={itemCount}
+            itemCount={products.length}
           />
         </aside>
 
