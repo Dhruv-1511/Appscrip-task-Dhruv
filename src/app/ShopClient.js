@@ -26,8 +26,8 @@ export default function ShopClient({ initialProducts, itemCount }) {
     const handleResize = () => checkMobile();
     window.addEventListener("resize", handleResize);
 
-    // Fallback client-side fetch if server-side returned empty due to 403/blocking
-    if (products.length === 0 && !error) {
+    // Only fetch if products are empty (likely due to server-side failure)
+    if (products.length === 0) {
       setIsLoading(true);
       fetch("https://fakestoreapi.com/products?limit=20")
         .then((res) => res.json())
@@ -42,7 +42,7 @@ export default function ShopClient({ initialProducts, itemCount }) {
     }
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [products.length, error]);
+  }, [products.length]);
 
   const sortedProducts = useMemo(
     () => sortProducts(products, sortBy),
