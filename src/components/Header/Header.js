@@ -112,19 +112,19 @@ export default function Header() {
         </div>
         <div className={styles.navBottom}>
           <div className={styles.navCenter}>
-            <Link href="/shop" className={styles.navLink}>
+            <Link href="/" className={styles.navLink}>
               SHOP
             </Link>
-            <Link href="/skills" className={styles.navLink}>
+            <Link href="/" className={styles.navLink}>
               SKILLS
             </Link>
-            <Link href="/stories" className={styles.navLink}>
+            <Link href="/" className={styles.navLink}>
               STORIES
             </Link>
-            <Link href="/about" className={styles.navLink}>
+            <Link href="/" className={styles.navLink}>
               ABOUT
             </Link>
-            <Link href="/contact-us" className={styles.navLink}>
+            <Link href="/" className={styles.navLink}>
               CONTACT US
             </Link>
           </div>
@@ -135,7 +135,7 @@ export default function Header() {
           HOME
         </Link>
         <span className={styles.breadcrumbSeparator}>|</span>
-        <Link href="/shop" className={styles.breadcrumbLinkActive}>
+        <Link href="/" className={styles.breadcrumbLinkActive}>
           SHOP
         </Link>
       </div>
@@ -160,35 +160,35 @@ export default function Header() {
           </button>
           <nav className={styles.sidebarNav}>
             <Link
-              href="/shop"
+              href="/"
               className={styles.sidebarNavLink}
               onClick={handleCloseSidebar}
             >
               SHOP
             </Link>
             <Link
-              href="/skills"
+              href="/"
               className={styles.sidebarNavLink}
               onClick={handleCloseSidebar}
             >
               SKILLS
             </Link>
             <Link
-              href="/stories"
+              href="/"
               className={styles.sidebarNavLink}
               onClick={handleCloseSidebar}
             >
               STORIES
             </Link>
             <Link
-              href="/about"
+              href="/"
               className={styles.sidebarNavLink}
               onClick={handleCloseSidebar}
             >
               ABOUT
             </Link>
             <Link
-              href="/contact-us"
+              href="/"
               className={styles.sidebarNavLink}
               onClick={handleCloseSidebar}
             >

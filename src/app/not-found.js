@@ -37,7 +37,7 @@ export default function NotFound() {
               <Link href="/" className={styles.homeButton}>
                 Return to Homepage
               </Link>
-              <Link href="/shop" className={styles.shopButton}>
+              <Link href="/" className={styles.shopButton}>
                 Browse Products
               </Link>
             </div>
