@@ -12,7 +12,7 @@ import { ChevronLeft, ChevronRight, ChevronDown, Check } from "lucide-react";
 export default function ShopClient({ initialProducts, itemCount }) {
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortBy, setSortBy] = useState("recommended");
-  const [products] = useState(initialProducts);
+  const [products, setProducts] = useState(initialProducts);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const dropdownRef = useRef(null);
