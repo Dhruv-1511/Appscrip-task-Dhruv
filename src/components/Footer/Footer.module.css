@@ -19,7 +19,7 @@
 }
 
 .newsletterSection {
-  max-width: 500px;
+  max-width: 580px;
 }
 
 .sectionTitle {
@@ -37,7 +37,8 @@
 
 .newsletterForm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: 12px;
 }
 
@@ -49,11 +50,12 @@
 }
 
 .emailInput {
-  width: 384px;
-  padding: 12px 16px;
+  flex: 1;
+  min-width: 0;
+  padding: 12.5px 24px;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  /* border-radius: 4px; */
+  font-size: 18px;
   background: #ffffff;
   color: #000000;
 }
@@ -69,7 +71,7 @@
   opacity: 0.7;
   color: #ffffff;
   border: 1px solid #ffffff;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
@@ -213,7 +215,7 @@
 }
 
 .footerLinks a:hover {
-  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .socialLinks {
@@ -328,6 +330,10 @@
 
   .newsletterText{
     margin-bottom: 24px;
+  }
+
+  .newsletterForm {
+    align-items: stretch;
   }
 
   .sectionTitle{
