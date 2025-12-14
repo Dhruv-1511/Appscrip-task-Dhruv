@@ -79,22 +79,22 @@ export default function Footer() {
             </button>
             <ul className={`${styles.footerLinks} ${openColumns.mettamuse ? styles.footerLinksOpen : ''}`}>
               <li>
-                <a href="/about">About Us</a>
+                <a href="/">About Us</a>
               </li>
               <li>
-                <a href="/stories">Stories</a>
+                <a href="/">Stories</a>
               </li>
               <li>
-                <a href="/artisans">Artisans</a>
+                <a href="/">Artisans</a>
               </li>
               <li>
-                <a href="/boutiques">Boutiques</a>
+                <a href="/">Boutiques</a>
               </li>
               <li>
-                <a href="/contact">Contact Us</a>
+                <a href="/">Contact Us</a>
               </li>
               <li>
-                <a href="/compliance">EU Compliances Docs</a>
+                <a href="/">EU Compliances Docs</a>
               </li>
             </ul>
           </div>
@@ -112,25 +112,25 @@ export default function Footer() {
             </button>
             <ul className={`${styles.footerLinks} ${openColumns.quicklinks ? styles.footerLinksOpen : ''}`}>
               <li>
-                <a href="/orders">Orders & Shipping</a>
+                <a href="/">Orders & Shipping</a>
               </li>
               <li>
-                <a href="/seller">Join/Login as a Seller</a>
+                <a href="/">Join/Login as a Seller</a>
               </li>
               <li>
-                <a href="/payment">Payment & Pricing</a>
+                <a href="/">Payment & Pricing</a>
               </li>
               <li>
-                <a href="/returns">Return & Refunds</a>
+                <a href="/">Return & Refunds</a>
               </li>
               <li>
-                <a href="/faq">FAQs</a>
+                <a href="/">FAQs</a>
               </li>
               <li>
-                <a href="/privacy">Privacy Policy</a>
+                <a href="/">Privacy Policy</a>
               </li>
               <li>
-                <a href="/terms">Terms & Conditions</a>
+                <a href="/">Terms & Conditions</a>
               </li>
             </ul>
           </div>

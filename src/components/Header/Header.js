@@ -96,10 +96,10 @@ export default function Header() {
         <div className={styles.navBottom}>
           <div className={styles.navCenter}>
             <Link href="/" className={styles.navLink}>SHOP</Link>
-            <Link href="/skills" className={styles.navLink}>SKILLS</Link>
-            <Link href="/stories" className={styles.navLink}>STORIES</Link>
-            <Link href="/about" className={styles.navLink}>ABOUT</Link>
-            <Link href="/contact" className={styles.navLink}>CONTACT US</Link>
+            <Link href="/" className={styles.navLink}>SKILLS</Link>
+            <Link href="/" className={styles.navLink}>STORIES</Link>
+            <Link href="/" className={styles.navLink}>ABOUT</Link>
+            <Link href="/" className={styles.navLink}>CONTACT US</Link>
           </div>
         </div>
       </nav>

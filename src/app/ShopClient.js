@@ -9,7 +9,7 @@ import { sortProducts, isMobile } from "@/lib/utils";
 import styles from "./page.module.css";
 import { ChevronLeft, ChevronRight, ChevronDown, Check } from "lucide-react";
 
-export default function ShopClient({ initialProducts, itemCount }) {
+export default function ShopClient({ initialProducts, itemCount, error }) {
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortBy, setSortBy] = useState("recommended");
   const [products] = useState(initialProducts);
@@ -156,6 +156,22 @@ export default function ShopClient({ initialProducts, itemCount }) {
           <h2 className={styles.productsHeading}>Our Products</h2>
           {isLoading ? (
             <LoadingSkeleton />
+          ) : error ? (
+            <div
+              className={styles.emptyState}
+              style={{
+                color: "red",
+                flexDirection: "column",
+                gap: "1rem",
+                textAlign: "center",
+              }}
+            >
+              <p>
+                <strong>Error loading products:</strong> {error}
+              </p>
+              <p>Time: {new Date().toISOString()}</p>
+              <p>Please check Vercel logs/network tab for more details.</p>
+            </div>
           ) : sortedProducts.length === 0 ? (
             <div className={styles.emptyState}>
               <p>No products found. Please try again later.</p>

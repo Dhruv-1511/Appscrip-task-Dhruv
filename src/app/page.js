@@ -23,16 +23,16 @@ async function getProducts() {
     }
 
     const data = await res.json();
-    return Array.isArray(data) ? data : [];
+    return { products: Array.isArray(data) ? data : [], error: null };
   } catch (error) {
     console.error("Error fetching products:", error);
-    // Return empty array to prevent page crash
-    return [];
+    // Return empty array and error message
+    return { products: [], error: error.message };
   }
 }
 
 export async function generateMetadata() {
-  const products = await getProducts();
+  const { products } = await getProducts();
   const firstProduct = products[0];
 
   return {
@@ -57,7 +57,7 @@ export async function generateMetadata() {
 }
 
 export default async function ShopPage() {
-  const products = await getProducts();
+  const { products, error } = await getProducts();
   const itemCount = products.length;
 
   const productSchema = {
@@ -112,7 +112,7 @@ export default async function ShopPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
-      <ShopPageClient products={products} itemCount={itemCount} />
+      <ShopPageClient products={products} itemCount={itemCount} error={error} />
     </>
   );
 }
