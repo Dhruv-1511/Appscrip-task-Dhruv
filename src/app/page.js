@@ -9,13 +9,17 @@ async function getProducts() {
       {
         next: { revalidate: API_CONFIG.REVALIDATE_TIME },
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
         },
       }
     );
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+      throw new Error(
+        `Failed to fetch products: ${res.status} ${res.statusText}`
+      );
     }
 
     const data = await res.json();
@@ -65,38 +69,40 @@ export default async function ShopPage() {
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: itemCount,
-      itemListElement: products.slice(0, PRODUCT_CONFIG.PRIORITY_IMAGES_COUNT * 2.5).map((product, index) => {
-        const productData = {
-          "@type": "Product",
-          position: index + 1,
-          name: product.title,
-          image: product.image,
-          description: product.description,
-          brand: {
-            "@type": "Brand",
-            name: "mettä muse"
-          },
-          offers: {
-            "@type": "Offer",
-            availability:
-              product.rating?.count > 0
-                ? "https://schema.org/InStock"
-                : "https://schema.org/OutOfStock",
-            priceCurrency: "USD",
-            url: `https://mettamuse.com/products/${product.id}`
-          }
-        };
-        
-        if (product.rating) {
-          productData.aggregateRating = {
-            "@type": "AggregateRating",
-            ratingValue: product.rating.rate,
-            reviewCount: product.rating.count
+      itemListElement: products
+        .slice(0, PRODUCT_CONFIG.PRIORITY_IMAGES_COUNT * 2.5)
+        .map((product, index) => {
+          const productData = {
+            "@type": "Product",
+            position: index + 1,
+            name: product.title,
+            image: product.image,
+            description: product.description,
+            brand: {
+              "@type": "Brand",
+              name: "mettä muse",
+            },
+            offers: {
+              "@type": "Offer",
+              availability:
+                product.rating?.count > 0
+                  ? "https://schema.org/InStock"
+                  : "https://schema.org/OutOfStock",
+              priceCurrency: "USD",
+              url: `https://mettamuse.com/products/${product.id}`,
+            },
           };
-        }
-        
-        return productData;
-      }),
+
+          if (product.rating) {
+            productData.aggregateRating = {
+              "@type": "AggregateRating",
+              ratingValue: product.rating.rate,
+              reviewCount: product.rating.count,
+            };
+          }
+
+          return productData;
+        }),
     },
   };
 

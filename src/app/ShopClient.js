@@ -21,11 +21,11 @@ export default function ShopClient({ initialProducts, itemCount }) {
     const checkMobile = () => {
       setFilterOpen(!isMobile());
     };
-    
+
     checkMobile();
     const handleResize = () => checkMobile();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const sortedProducts = useMemo(
@@ -57,25 +57,29 @@ export default function ShopClient({ initialProducts, itemCount }) {
     <div className={styles.shopContainer}>
       <div className={styles.shopHeader}>
         <div className={styles.headerLeft}>
-          <span className={`${styles.itemCount} ${styles.hideOnTablet}`}>{itemCount} ITEMS</span>
+          <span className={`${styles.itemCount} ${styles.hideOnTablet}`}>
+            {itemCount} ITEMS
+          </span>
           {filterOpen ? (
             <>
-              <button 
-                className={`${styles.filterButton} ${styles.hideOnTablet}`} 
+              <button
+                className={`${styles.filterButton} ${styles.hideOnTablet}`}
                 onClick={() => setFilterOpen(false)}
               >
-                <ChevronLeft size={16} /> <span className={styles.filterText}>HIDE FILTER</span>
+                <ChevronLeft size={16} />{" "}
+                <span className={styles.filterText}>HIDE FILTER</span>
               </button>
             </>
           ) : (
-            <button 
-              className={`${styles.filterButton} ${styles.hideOnTablet}`} 
+            <button
+              className={`${styles.filterButton} ${styles.hideOnTablet}`}
               onClick={() => setFilterOpen(true)}
             >
-              <ChevronRight size={16} /> <span className={styles.filterText}>SHOW FILTER</span>
+              <ChevronRight size={16} />{" "}
+              <span className={styles.filterText}>SHOW FILTER</span>
             </button>
           )}
-          <button 
+          <button
             className={`${styles.filterTextButton} ${styles.showOnTablet}`}
             onClick={() => setFilterOpen(true)}
           >
@@ -89,9 +93,11 @@ export default function ShopClient({ initialProducts, itemCount }) {
             aria-label="Sort products"
           >
             {selectedOption?.label}
-            <ChevronDown 
-              size={16} 
-              className={`${styles.chevronIcon} ${dropdownOpen ? styles.chevronRotated : ""}`} 
+            <ChevronDown
+              size={16}
+              className={`${styles.chevronIcon} ${
+                dropdownOpen ? styles.chevronRotated : ""
+              }`}
             />
           </button>
           {dropdownOpen && (
@@ -108,7 +114,9 @@ export default function ShopClient({ initialProducts, itemCount }) {
                     }}
                   >
                     <span className={styles.checkIconContainer}>
-                      {isSelected && <Check size={16} className={styles.checkIcon} />}
+                      {isSelected && (
+                        <Check size={16} className={styles.checkIcon} />
+                      )}
                     </span>
                     <span
                       className={
@@ -128,11 +136,15 @@ export default function ShopClient({ initialProducts, itemCount }) {
       </div>
 
       <div className={styles.shopContent}>
-        <div 
-          className={`${styles.overlay} ${filterOpen ? styles.open : ''}`}
+        <div
+          className={`${styles.overlay} ${filterOpen ? styles.open : ""}`}
           onClick={() => setFilterOpen(false)}
         ></div>
-        <aside className={`${styles.sidebarWrapper} ${filterOpen ? styles.open : ''}`}>
+        <aside
+          className={`${styles.sidebarWrapper} ${
+            filterOpen ? styles.open : ""
+          }`}
+        >
           <FilterSidebar
             isOpen={filterOpen}
             onToggle={() => setFilterOpen(!filterOpen)}
@@ -164,4 +176,3 @@ export default function ShopClient({ initialProducts, itemCount }) {
     </div>
   );
 }
-
